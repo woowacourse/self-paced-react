@@ -39,4 +39,6 @@
 
 ## 🔗 참고 문서
 - [Sharing State Between Components](https://react.dev/learn/sharing-state-between-components)
-- [API Reference: <input>](https://react.dev/reference/react-dom/components/input)
+- [API Reference: `<input>`](https://react.dev/reference/react-dom/components/input) 
+- [API Reference: useState > updater function](https://react.dev/reference/react/useState#updating-state-based-on-the-previous-state)
+> `set` function에 함수를 넘겨주면 `updater function`으로 동작합니다. 함수가 아닌 값을 넘겨줄 때와 어떻게 다른지 알아보세요.  

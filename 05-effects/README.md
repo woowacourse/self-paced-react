@@ -1,5 +1,7 @@
 # 05. API 연동하기: side-effect(feat. effects)
 
+<img src="../images/05-side-effects-effect.jpg" width=720 />    
+
 ## 🎯 요구 사항
 - API로 레스토랑 목록을 불러와 `<RestaurantList />`에 내려줍니다.
   - 로딩 상태, 에러 상태 등은 고려하지 않습니다.
@@ -39,10 +41,8 @@ const response = await fetch("http://localhost:3000/restaurants", {
 > Effects let you specify side effects that are caused by rendering itself, rather than by a particular event.     
   - [API Reference: useEffect](https://react.dev/reference/react/useEffect)
   > useEffect is a React Hook that lets you synchronize a component with an external system. 
-- [API Reference: useSate > updater function](https://react.dev/reference/react/useState#updating-state-based-on-the-previous-state) 
-  > `set` function에 함수를 넘겨주면 `updater function`으로 동작합니다. 함수가 아닌 값을 넘겨줄 때와 어떻게 다른지 알아보세요.  
 
-구현을 다 해본 뒤에 Introduction에서 살펴보았던 설계 원칙과 관련해 조금 더 학습해보고 싶다면 아래 문서들도 추가로 확인해 보세요.
+구현을 다 해본 뒤에 Introduction에서 살펴보았던 설계 원칙과 관련해 조금 더 학습해보고 싶다면 아래 문서들도 추가로 다시 확인해 보세요.
 - [You Might Not Need an Effect](https://react.dev/learn/you-might-not-need-an-effect)
 > You do need Effects to synchronize with external systems.  
 > In React, data flows from the parent components to their children. 

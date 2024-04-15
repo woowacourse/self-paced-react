@@ -1,5 +1,7 @@
 # 02. 목록 UI 구현하기: Props와 State
 
+<img src="../images/02-one-way-data-flow.jpg" width=720 />    
+
 ## 🎯 요구 사항
 - `RestaurantList` 가 restaurants 배열을 받아서 그릴 수 있도록 변경해 보세요.
   - restaurants 배열을 `RestaurantList` 의 props로 내려받도록 변경해 보세요.
@@ -69,8 +71,8 @@ const restaurants = [
   - [guide/02-1](https://github.com/woowacourse/self-paced-react/commit/24b8616c834694ac6ed0c94cbee58230fa48d206) 
   - [guide/02-2](https://github.com/woowacourse/self-paced-react/commit/54076034b0cc561a675c1289b18b353b9a44a9e8)
 
-## 🔗 참고 문서
-- [Thinking in React](https://react.dev/learn/thinking-in-react)의 Step3-4
+## 🔗 참고 문서     
+- [Thinking in React](https://react.dev/learn/thinking-in-react)의 Step3-4          
 - [Passing Props to a Component](https://react.dev/learn/passing-props-to-a-component)
 - [Rendering Lists](https://react.dev/learn/rendering-lists)
 - [State: A Component's Memory](https://react.dev/learn/state-a-components-memory)
