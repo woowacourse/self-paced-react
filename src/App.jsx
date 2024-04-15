@@ -1,3 +1,5 @@
+import { useState } from "react";
+
 import "./App.css";
 
 import Header from "./components/Header";
@@ -48,12 +50,17 @@ const restaurants = [
 ];
 
 function App() {
+  // [GUIDE] "전체"를 비롯한 카테고리 이름은 상수화할 수 있습니다. 이 저장소에서는 가능한 간단한 구현을 먼저 해보라는 의미로 상수화하지 않았습니다.
+  const [category, setCategory] = useState("전체");
+  const filteredRestaurants =
+    category === "전체" ? restaurants : restaurants.filter((restaurant) => restaurant.category === category);
+
   return (
     <>
       <Header />
       <main>
-        <CategoryFilter />
-        <RestaurantList restaurants={restaurants} />
+        <CategoryFilter category={category} onChangeCategory={setCategory} />
+        <RestaurantList restaurants={filteredRestaurants} />
       </main>
       <aside>
         <RestaurantDetailModal />
