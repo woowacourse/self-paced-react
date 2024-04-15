@@ -8,7 +8,7 @@ import RestaurantList from "./components/RestaurantList";
 import RestaurantDetailModal from "./components/RestaurantDetailModal";
 import AddRestaurantModal from "./components/AddRestaurantModal";
 
-const restaurants = [
+const initialRestaurants = [
   {
     id: "a01",
     name: "피양콩할마니",
@@ -50,6 +50,7 @@ const restaurants = [
 ];
 
 function App() {
+  const [restaurants, setRestaurants] = useState(initialRestaurants);
   const [category, setCategory] = useState("전체");
   const filteredRestaurants =
     category === "전체" ? restaurants : restaurants.filter((restaurant) => restaurant.category === category);
@@ -73,6 +74,7 @@ function App() {
   const closeAddModal = () => {
     setAddModalOpen(false);
   };
+  const addRestaurant = (restaurant) => setRestaurants((prevRestaurants) => [...prevRestaurants, restaurant]);
 
   return (
     <>
@@ -83,7 +85,7 @@ function App() {
       </main>
       <aside>
         {isDetailModalOpen && <RestaurantDetailModal restaurant={selectedRestaurant} onClose={closeDetailModal} />}
-        {isAddModalOpen && <AddRestaurantModal onClose={closeAddModal} />}
+        {isAddModalOpen && <AddRestaurantModal onClose={closeAddModal} onSubmit={addRestaurant} />}
       </aside>
     </>
   );
