@@ -16,12 +16,12 @@ const categoryIcons = {
   기타: categoryEtc,
 };
 
-export default function RestaurantList({ restaurants }) {
+export default function RestaurantList({ restaurants, onClickItem }) {
   return (
     <section className="restaurant-list-container">
       <ul className="restaurant-list">
         {restaurants.map((restaurant) => (
-          <li className="restaurant" key={restaurant.id}>
+          <li className="restaurant" key={restaurant.id} onClick={onClickItem}>
             <div className="restaurant__category">
               <img src={categoryIcons[restaurant.category]} alt={restaurant.category} className="category-icon" />
             </div>
