@@ -40,6 +40,9 @@ function App() {
 
 ## 🧙‍♀️ 진행 가이드
 - 권장 진행 시간: 1시간 내
+- 권장 시간 이후에는 요구 사항 별로 아래 브랜치를 참고해 보세요 
+  - [guide/01-1](https://github.com/woowacourse/self-paced-react/commit/431d1b7e09e3bd3e4780d0c5666bca2a396906f5) 
+  - [guide/01-2](https://github.com/woowacourse/self-paced-react/commit/3bf3e7a1564c750fa55565c184953fb3e2484062)
 
 ## 🔗 참고 문서
 - [Thinking in React](https://react.dev/learn/thinking-in-react)의 Step1-2 에 있는 것처럼 나만의 컴포넌트 단위를 나누어 보세요.

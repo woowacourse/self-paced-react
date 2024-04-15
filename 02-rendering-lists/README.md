@@ -65,6 +65,9 @@ const restaurants = [
 
 ## 🧙‍♀️ 진행 가이드
 - 권장 진행 시간: 1시간 내 
+- 권장 시간 이후에는 요구 사항 별로 아래 브랜치를 참고해 보세요 
+  - [guide/02-1](https://github.com/woowacourse/self-paced-react/commit/24b8616c834694ac6ed0c94cbee58230fa48d206) 
+  - [guide/02-2](https://github.com/woowacourse/self-paced-react/commit/54076034b0cc561a675c1289b18b353b9a44a9e8)
 
 ## 🔗 참고 문서
 - [Thinking in React](https://react.dev/learn/thinking-in-react)의 Step3-4

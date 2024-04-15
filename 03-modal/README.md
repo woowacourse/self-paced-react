@@ -18,6 +18,9 @@
 
 ## 🧙‍♀️ 진행 가이드
 - 권장 진행 시간: 1시간 내
+- 권장 시간 이후에는 요구 사항 별로 아래 브랜치를 참고해 보세요 
+  - [guide/03-1](https://github.com/woowacourse/self-paced-react/commit/1625a83eb22e94ed8199bef007cff7e1d965e134) 
+  - [guide/03-2](https://github.com/woowacourse/self-paced-react/commit/3096c71c6ebfe74bfdff8889cbe3ca622ef5af41)
 
 ## 🔗 참고 문서
 - [Thinking in React](https://react.dev/learn/thinking-in-react)의 Step5

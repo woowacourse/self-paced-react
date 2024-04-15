@@ -32,6 +32,10 @@
 
 ## 🧙‍♀️ 진행 가이드
 - 권장 진행 시간: (optional 제외) 2시간 내
+- 권장 시간 이후에는 요구 사항 별로 아래 브랜치를 참고해 보세요 
+  - [guide/04-1](https://github.com/woowacourse/self-paced-react/commit/c7fd896e684b488f46e0ee0fdaf8cb636943a995) 
+  - [guide/04-2](https://github.com/woowacourse/self-paced-react/commit/7c998b3d10f77b8a219e586ffd68ff90d7a9977a)
+  - [guide/04-3](https://github.com/woowacourse/self-paced-react/commit/17ad782fbb4f0378dcb7ad196f335751b48a20ec)
 
 ## 🔗 참고 문서
 - [Sharing State Between Components](https://react.dev/learn/sharing-state-between-components)

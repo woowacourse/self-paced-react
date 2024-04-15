@@ -12,6 +12,9 @@
 ## 🧙‍♀️ 진행 가이드
 
 - 권장 진행 시간: 2시간 내
+- 권장 시간 이후에는 요구 사항 별로 아래 브랜치를 참고해 보세요 
+  - [guide/05-1](https://github.com/woowacourse/self-paced-react/commit/3f9924feff5e0562f76d91b76f426e9f6b9c63f0) 
+  - [guide/05-2](https://github.com/woowacourse/self-paced-react/commit/cfe7eaf5024d0303012e38b832191650beb91cc6)
 
 ### `json-server`로 가짜 서버 띄워 활용하기     
 연습용 앱이기 때문에 [`json-server`](https://github.com/typicode/json-server)를 활용해 간단한 가짜 REST API를 구축해 사용합니다.         
