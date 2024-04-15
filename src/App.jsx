@@ -44,7 +44,18 @@ function App() {
   const closeAddModal = () => {
     setAddModalOpen(false);
   };
-  const addRestaurant = (restaurant) => setRestaurants((prevRestaurants) => [...prevRestaurants, restaurant]);
+  const addRestaurant = async (restaurant) => {
+    const response = await fetch("http://localhost:3000/restaurants", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(restaurant),
+    });
+    const data = await response.json();
+
+    setRestaurants((prevRestaurants) => [...prevRestaurants, data]);
+  };
 
   return (
     <>
