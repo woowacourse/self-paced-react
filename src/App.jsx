@@ -1,7 +1,17 @@
-import "./App.css";
+import CategoryFilter from "./CategoryFilter";
+import Header from "./Header";
+import RestaurantList from "./RestaurantList";
 
 function App() {
-  return <h1>Self-Paced React</h1>;
+  return (
+    <div>
+      <Header />
+      <main>
+        <CategoryFilter />
+        <RestaurantList />
+      </main>
+    </div>
+  );
 }
 
 export default App;
