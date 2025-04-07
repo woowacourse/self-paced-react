@@ -1,13 +1,13 @@
 import './RestaurantDetailModal.css';
 
-function RestaurantDetailModal({ onClose }) {
+function RestaurantDetailModal({ restaurant, onClose }) {
   return (
     <div className="modal modal--open">
       <div className="modal-backdrop" onClick={onClose}></div>
       <div className="modal-container" onClick={(e) => e.stopPropagation()}>
-        <h2 className="modal-title text-title">음식점 이름</h2>
+        <h2 className="modal-title text-title">{restaurant.name}</h2>
         <div className="restaurant-info">
-          <p className="restaurant-info__description text-body">음식점 소개 문구</p>
+          <p className="restaurant-info__description text-body">{restaurant.description}</p>
         </div>
         {/* 닫기 버튼 */}
         <div className="button-container">
