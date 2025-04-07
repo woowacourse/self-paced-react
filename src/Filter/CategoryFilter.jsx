@@ -1,6 +1,9 @@
 import "./categoryFilter.css";
 
-export default function CategoryFilter() {
+export default function CategoryFilter({ category, onChangeCategory }) {
+  const handleCategoryChange = (event) => {
+    onChangeCategory(event.target.value === "전체" ? "" : event.target.value);
+  };
   return (
     <section className="restaurant-filter-container">
       <select
@@ -8,6 +11,8 @@ export default function CategoryFilter() {
         id="category-filter"
         className="restaurant-filter"
         aria-label="음식점 카테고리 필터"
+        onChange={handleCategoryChange}
+        value={category}
       >
         <option value="전체">전체</option>
         <option value="한식">한식</option>
