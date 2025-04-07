@@ -49,6 +49,7 @@ function App() {
   ];
 
   const [category, setCategory] = useState('전체');
+  const [isModalOpen, setIsModalOpen] = useState(false);
 
   const filteredRestaurants = restaurants.filter(
     (restaurant) => category === '전체' || restaurant.category === category
@@ -62,13 +63,12 @@ function App() {
         {/* 카테고리/정렬 필터 */}
         <CategoryFilter category={category} onChangeCategory={setCategory} />
         {/* 음식점 목록 */}
-        <RestaurantList restaurants={filteredRestaurants} />
+        <RestaurantList restaurants={filteredRestaurants} onClickItem={() => setIsModalOpen(true)} />
+        {isModalOpen && <RestaurantDetailModal onClose={() => setIsModalOpen(false)} />}
       </main>
       <aside>
-        {/* 음식점 정보 모달 */}
-        <RestaurantDetailModal />
         {/* 음식점 추가 모달 */}
-        <AddRestaurantModal />
+        {/* <AddRestaurantModal /> */}
       </aside>
     </>
   );
