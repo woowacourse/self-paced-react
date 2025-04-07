@@ -1,11 +1,19 @@
 import "./restaurantList.css";
 
-export default function RestaurantList({ restaurants }) {
+export default function RestaurantList({ restaurants, onRestaurantClick }) {
+  const handleRestaurantClick = (restaurant) => {
+    onRestaurantClick();
+    console.log(restaurant);
+  };
   return (
     <section className="restaurant-list-container">
       <ul className="restaurant-list">
         {restaurants.map((restaurant) => (
-          <li className="restaurant" key={restaurant.id}>
+          <li
+            className="restaurant"
+            key={restaurant.id}
+            onClick={() => handleRestaurantClick(restaurant)}
+          >
             <div className="restaurant__category">
               <img
                 src={`../assets/category-${restaurant.category}.png`}

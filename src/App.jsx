@@ -9,20 +9,33 @@ import { useState } from "react";
 
 function App() {
   const [category, setCategory] = useState("");
+  const [isModalOpen, setIsModalOpen] = useState(false);
 
   const filteredRestaurants = restaurants.filter(
     (restaurant) => category === "" || restaurant.category === category
   );
+
+  const handleOpenModal = () => setIsModalOpen(true);
+  const handleCloseModal = () => setIsModalOpen(false);
 
   return (
     <>
       <Header />
       <main>
         <CategoryFilter category={category} onChangeCategory={setCategory} />
-        <RestaurantList restaurants={filteredRestaurants} />
+        <RestaurantList
+          restaurants={filteredRestaurants}
+          onRestaurantClick={handleOpenModal}
+        />
       </main>
       <aside>
-        <RestaurantDetailModal />
+        {isModalOpen && (
+          <RestaurantDetailModal
+            isModalOpen={isModalOpen}
+            onCloseEvent={handleCloseModal}
+          />
+        )}
+
         <AddRestaurantModal />
       </aside>
     </>
