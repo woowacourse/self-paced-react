@@ -40,9 +40,9 @@ React를 활용하는 코드를 직접 작성해보면서 대략적인 감을 �
 
 ## 🦮 목차
 ### [00. Introduction](./00-introduction/README.md)
-### [01. 컴포넌트 선언하고 사용하기: Component 기본 구조와 JSX](./01-first-component/README.md)
-### [02. 목록 UI 구현하기: Props와 State](./02-rendering-lists/README.md)
-### [03. 모달 UI 구현하기: side-effect(feat. event handler)](./03-modal/README.md)
-### [04. 폼 UI 구현하기: controlled vs uncontrolled](./04-form/README.md) 
-### [05. API 연동하기: side-effect(feat. effects)](./05-effects/README.md)
+### [01. 컴포넌트 선언하고 사용하기: Component 기본 구조와 JSX](01-first-component/01-first-component.md)
+### [02. 목록 UI 구현하기: Props와 State](02-rendering-lists/02-rendering-lists.md)
+### [03. 모달 UI 구현하기: side-effect(feat. event handler)](03-modal/03-modal.md)
+### [04. 폼 UI 구현하기: controlled vs uncontrolled](04-form/04-form.md) 
+### [05. API 연동하기: side-effect(feat. effects)](05-effects/05-effects.md)
 ### [06. References](./06-references/README.md)
