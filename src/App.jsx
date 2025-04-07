@@ -4,6 +4,7 @@ import CategoryFilter from './components/CategoryFilter/CategoryFilter';
 import Header from './components/Header/Header';
 import RestaurantList from './components/RestaurantList/RestaurantList';
 import RestaurantDetailModal from './components/Modal/RestaurantDetailModal/RestaurantDetailModal';
+import { useState } from 'react';
 
 function App() {
   const restaurants = [
@@ -47,15 +48,21 @@ function App() {
     },
   ];
 
+  const [category, setCategory] = useState('전체');
+
+  const filteredRestaurants = restaurants.filter(
+    (restaurant) => category === '전체' || restaurant.category === category
+  );
+
   return (
     <>
       {/* GNB */}
       <Header />
       <main>
         {/* 카테고리/정렬 필터 */}
-        <CategoryFilter />
+        <CategoryFilter category={category} onChangeCategory={setCategory} />
         {/* 음식점 목록 */}
-        <RestaurantList restaurants={restaurants} />
+        <RestaurantList restaurants={filteredRestaurants} />
       </main>
       <aside>
         {/* 음식점 정보 모달 */}
