@@ -4,6 +4,7 @@ import RestaurantList from "./RestaurantList/RestaurantList";
 import RestaurantDetailModal from "./Modal/RestaurantDetailModal";
 import AddRestaurantModal from "./Modal/AddRestaurantModal";
 import CategoryFilter from "./Filter/CategoryFilter";
+import { restaurants } from "./Restaurants";
 
 function App() {
   return (
@@ -11,7 +12,7 @@ function App() {
       <Header />
       <main>
         <CategoryFilter />
-        <RestaurantList />
+        <RestaurantList restaurants={restaurants} />
       </main>
       <aside>
         <RestaurantDetailModal />
