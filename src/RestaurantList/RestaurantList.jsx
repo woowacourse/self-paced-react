@@ -2,9 +2,9 @@ import "./restaurantList.css";
 
 export default function RestaurantList({ restaurants, onRestaurantClick }) {
   const handleRestaurantClick = (restaurant) => {
-    onRestaurantClick();
-    console.log(restaurant);
+    onRestaurantClick(restaurant);
   };
+
   return (
     <section className="restaurant-list-container">
       <ul className="restaurant-list">

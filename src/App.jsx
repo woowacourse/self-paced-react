@@ -10,12 +10,16 @@ import { useState } from "react";
 function App() {
   const [category, setCategory] = useState("");
   const [isModalOpen, setIsModalOpen] = useState(false);
+  const [selectedRestaurant, setSelectedRestaurant] = useState(null);
 
   const filteredRestaurants = restaurants.filter(
     (restaurant) => category === "" || restaurant.category === category
   );
 
-  const handleOpenModal = () => setIsModalOpen(true);
+  const handleOpenModal = (restaurant) => {
+    setSelectedRestaurant(restaurant);
+    setIsModalOpen(true);
+  };
   const handleCloseModal = () => setIsModalOpen(false);
 
   return (
@@ -33,6 +37,7 @@ function App() {
           <RestaurantDetailModal
             isModalOpen={isModalOpen}
             onCloseEvent={handleCloseModal}
+            selectedRestaurant={selectedRestaurant}
           />
         )}
 
