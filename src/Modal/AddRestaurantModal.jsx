@@ -16,14 +16,30 @@ export default function AddRestaurantModal({
     setForm((prev) => ({ ...prev, [name]: value }));
   };
 
-  const handleSubmit = (event) => {
+  const handleSubmit = async (event) => {
     event.preventDefault();
     const newRestaurant = {
       id: Date.now(),
       ...form,
     };
-    onAddRestaurant(newRestaurant);
-    setForm({ category: "", name: "", description: "" });
+
+    try {
+      const response = await fetch("http://localhost:3000/restaurants", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(newRestaurant),
+      });
+
+      if (!response.ok) throw new Error("음식점을 추가하지 못했습니다.");
+
+      onAddRestaurant((prevRestaurants) => [...prevRestaurants, newRestaurant]);
+      setForm({ category: "", name: "", description: "" });
+    } catch (error) {
+      console.error(error);
+      alert("음식점을 추가하지 못했습니다.");
+    }
   };
 
   return (
