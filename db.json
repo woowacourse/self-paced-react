@@ -35,6 +35,24 @@
       "name": "도스타코스 선릉점",
       "description": "멕시칸 캐주얼 그릴",
       "category": "기타"
+    },
+    {
+      "id": 1744139526947,
+      "category": "일식",
+      "name": "123",
+      "description": "213"
+    },
+    {
+      "id": 1744139725227,
+      "category": "한식",
+      "name": "맛있는 음식점",
+      "description": "맛있는 음식점입니다."
+    },
+    {
+      "id": 1744139739456,
+      "category": "중식",
+      "name": "가나다",
+      "description": "라마바"
     }
   ]
 }

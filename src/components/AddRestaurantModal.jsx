@@ -1,20 +1,39 @@
 import '../css/Modal.css';
 import { useState } from 'react';
 
-function AddRestaurantModal({ onChangeModal, currentRestaurants, handleRestaurant }) {
+function AddRestaurantModal({ onChangeModal, handleRestaurant }) {
     const [category, setCategory] = useState('');
     const [name, setName] = useState('');
     const [description, setDescription] = useState('');
 
     const handleFomSubmit = (e) => {
         e.preventDefault();
-        const newRestaurant = {
-            id: Date.now(),
-            category,
-            name,
-            description,
+
+        const addRestaurant = async () => {
+            try {
+                const newRestaurant = {
+                    id: Date.now(),
+                    category,
+                    name,
+                    description,
+                };
+
+                await fetch('http://localhost:3000/restaurants', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify(newRestaurant),
+                });
+
+                const response = await fetch('http://localhost:3000/restaurants');
+                const updatedRestaurants = await response.json();
+                handleRestaurant(updatedRestaurants);
+            } catch (error) {
+                console.error('레스토랑 추가 중 오류 발생:', error.message);
+            }
         };
-        handleRestaurant([...currentRestaurants, newRestaurant]);
+        addRestaurant();
         onChangeModal(false);
     };
     return (
