@@ -1,12 +1,16 @@
 import "./RestaurantList.css";
 
-import restaurantCategory from "../../data/RestaurantCategory";
-function RestaurantList({ restaurants }) {
+import restaurantCategory from "../../data/restaurantCategory";
+function RestaurantList({ restaurants, onClickDetail }) {
   return (
     <section className="restaurant-list-container">
       <ul className="restaurant-list">
         {restaurants.map((restaurant) => (
-          <li key={restaurant.id} className="restaurant">
+          <li
+            key={restaurant.id}
+            className="restaurant"
+            onClick={() => onClickDetail(restaurant)}
+          >
             <div className="restaurant__category">
               <img
                 src={`/category-${restaurantCategory[restaurant.category]}.png`}
