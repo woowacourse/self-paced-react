@@ -1,13 +1,20 @@
 import '../css/RestaurantList.css';
 import { convertCategoryData } from '../data/convertCategoryData.js';
 
-function RestaurantList({ restaurants }) {
+function RestaurantList({ restaurants, onChangeModal, onChangeSelectRestaurant }) {
     return (
         <>
             <section className='restaurant-list-container'>
                 <ul className='restaurant-list'>
                     {restaurants.map((restaurant) => (
-                        <li key={restaurant.id} className='restaurant'>
+                        <li
+                            key={restaurant.id}
+                            className='restaurant'
+                            onClick={() => {
+                                onChangeModal(true);
+                                onChangeSelectRestaurant(restaurant);
+                            }}
+                        >
                             <div className='restaurant__category'>
                                 <img src={`./category-${convertCategoryData[restaurant.category]}.png`} alt={restaurant.category} className='category-icon' />
                             </div>
