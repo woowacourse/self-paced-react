@@ -1,6 +1,7 @@
 import '../css/Modal.css';
 import { useState } from 'react';
 
+
 function AddRestaurantModal({ onChangeModal, handleRestaurant }) {
     const [category, setCategory] = useState('');
     const [name, setName] = useState('');
@@ -8,7 +9,6 @@ function AddRestaurantModal({ onChangeModal, handleRestaurant }) {
 
     const handleFomSubmit = (e) => {
         e.preventDefault();
-
         const addRestaurant = async () => {
             try {
                 const newRestaurant = {
