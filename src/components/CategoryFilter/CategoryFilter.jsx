@@ -1,4 +1,4 @@
-import "./css/CategoryFilter.css";
+import "./CategoryFilter.css";
 
 function CategoryFilter() {
   return (

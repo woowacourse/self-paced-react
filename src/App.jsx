@@ -1,10 +1,9 @@
 import "./App.css";
-import "../src/components/Header.jsx";
-import Header from "../src/components/Header.jsx";
-import CategoryFilter from "./components/CategoryFilter.jsx";
-import RestaurantList from "./components/RestaurantList.jsx";
-import RestaurantDetailModal from "./components/RestaurantDetailModal.jsx";
-import AddRestaurantModal from "./components/AddRestaurantModal.jsx";
+import Header from "./components/Header/Header.jsx";
+import CategoryFilter from "./components/CategoryFilter/CategoryFilter.jsx";
+import RestaurantList from "./components/RestaurantList/RestaurantList.jsx";
+import RestaurantDetailModal from "./components/RestaurantDetailModal/RestaurantDetailModal.jsx";
+import AddRestaurantModal from "./components/AddRestaurantModal/AddRestaurantModal.jsx";
 
 function App() {
   return (

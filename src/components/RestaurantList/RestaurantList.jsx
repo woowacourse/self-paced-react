@@ -1,4 +1,4 @@
-import "./css/RestaurantList.css";
+import "./RestaurantList.css";
 
 function RestaurantList() {
   return (
