@@ -1,17 +1,49 @@
+import { useState } from "react";
 import "./modal.css";
 
-export default function AddRestaurantModal() {
+export default function AddRestaurantModal({
+  isAddModalOpen,
+  onAddRestaurant,
+}) {
+  const [form, setForm] = useState({
+    category: "",
+    name: "",
+    description: "",
+  });
+
+  const handleChange = (event) => {
+    const { name, value } = event.target;
+    setForm((prev) => ({ ...prev, [name]: value }));
+  };
+
+  const handleSubmit = (event) => {
+    event.preventDefault();
+    const newRestaurant = {
+      id: Date.now(),
+      ...form,
+    };
+    onAddRestaurant(newRestaurant);
+    setForm({ category: "", name: "", description: "" });
+  };
+
   return (
-    <div className="modal modal--open">
+    <div className={`modal ${isAddModalOpen ? "modal--open" : ""}`}>
       <div className="modal-backdrop"></div>
       <div className="modal-container">
         <h2 className="modal-title text-title">새로운 음식점</h2>
-        <form>
+        <form onSubmit={handleSubmit}>
           <div className="form-item form-item--required">
             <label htmlFor="category" className="text-caption">
               카테고리
             </label>
-            <select name="category" id="category" required autoComplete="off">
+            <select
+              name="category"
+              id="category"
+              required
+              autoComplete="off"
+              value={form.category}
+              onChange={handleChange}
+            >
               <option value="">선택해 주세요</option>
               <option value="한식">한식</option>
               <option value="중식">중식</option>
@@ -32,6 +64,8 @@ export default function AddRestaurantModal() {
               id="name"
               required
               autoComplete="organization"
+              value={form.name}
+              onChange={handleChange}
             />
           </div>
 
@@ -45,6 +79,8 @@ export default function AddRestaurantModal() {
               cols="30"
               rows="5"
               autoComplete="off"
+              value={form.description}
+              onChange={handleChange}
             ></textarea>
             <span className="help-text text-caption">
               메뉴 등 추가 정보를 입력해 주세요.
