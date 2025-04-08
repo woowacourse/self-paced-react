@@ -1,5 +1,5 @@
 import './App.css';
-import AddRestaurantModal from './components/AddRestaurantModal';
+// import AddRestaurantModal from './components/AddRestaurantModal';
 import CategoryFilter from './components/CategoryFilter';
 import Header from './components/Header';
 import RestaurantDetailModal from './components/RestaurantDetailModal';
@@ -10,16 +10,19 @@ import { restaurantsData } from './data/restaurantsData';
 function App() {
     const [category, setCategory] = useState('전체');
     const filteredRestaurants = category === '전체' ? restaurantsData : restaurantsData.filter((restaurant) => restaurant.category === category);
+    const [isModalOpen, setIsModalOpen] = useState(false);
+    const [selectedRestaurant, setSelectedRestaurant] = useState(null);
+
     return (
         <>
             <Header />
             <main>
                 <CategoryFilter category={category} onChangeCategory={setCategory} />
-                <RestaurantList restaurants={filteredRestaurants} />
+                <RestaurantList restaurants={filteredRestaurants} onChangeModal={setIsModalOpen} onChangeSelectRestaurant={setSelectedRestaurant} />
             </main>
             <aside>
-                <RestaurantDetailModal />
-                <AddRestaurantModal />
+                {isModalOpen && <RestaurantDetailModal onChangeModal={setIsModalOpen} selectedRestaurant={selectedRestaurant} />}
+                {/* <AddRestaurantModal /> */}
             </aside>
         </>
     );
