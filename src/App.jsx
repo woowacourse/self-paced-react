@@ -4,13 +4,15 @@ import RestaurantList from "./RestaurantList/RestaurantList";
 import RestaurantDetailModal from "./Modal/RestaurantDetailModal";
 import AddRestaurantModal from "./Modal/AddRestaurantModal";
 import CategoryFilter from "./Filter/CategoryFilter";
-import { restaurants } from "./Restaurants";
+import { RESTAURANTS } from "./Restaurants";
 import { useState } from "react";
 
 function App() {
   const [category, setCategory] = useState("");
   const [isModalOpen, setIsModalOpen] = useState(false);
+  const [isAddModalOpen, setIsAddModalOpen] = useState(false);
   const [selectedRestaurant, setSelectedRestaurant] = useState(null);
+  const [restaurants, setRestaurants] = useState(RESTAURANTS);
 
   const filteredRestaurants = restaurants.filter(
     (restaurant) => category === "" || restaurant.category === category
@@ -21,10 +23,16 @@ function App() {
     setIsModalOpen(true);
   };
   const handleCloseModal = () => setIsModalOpen(false);
+  const handleOpenAddModal = () => setIsAddModalOpen(true);
+
+  const handleAddRestaurant = (newRestaurant) => {
+    setRestaurants((prev) => [...prev, newRestaurant]);
+    setIsAddModalOpen(false);
+  };
 
   return (
     <>
-      <Header />
+      <Header onClick={handleOpenAddModal} />
       <main>
         <CategoryFilter category={category} onChangeCategory={setCategory} />
         <RestaurantList
@@ -41,7 +49,12 @@ function App() {
           />
         )}
 
-        <AddRestaurantModal />
+        {isAddModalOpen && (
+          <AddRestaurantModal
+            isAddModalOpen={isAddModalOpen}
+            onAddRestaurant={handleAddRestaurant}
+          />
+        )}
       </aside>
     </>
   );
