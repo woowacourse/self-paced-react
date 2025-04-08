@@ -9,13 +9,14 @@ import restaurantsData from "./data/restaurantData";
 import { useState } from "react";
 
 function App() {
-  const [restaurants, setRestaurants] = useState(restaurantsData);
   const [category, setCategory] = useState("전체");
 
   const filteredRestaurants =
     category === "전체"
-      ? restaurants
-      : restaurants.filter((restaurant) => restaurant.category === category);
+      ? restaurantsData
+      : restaurantsData.filter(
+          (restaurant) => restaurant.category === category
+        );
 
   return (
     <>
