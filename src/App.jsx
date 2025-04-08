@@ -1,7 +1,8 @@
 import "./App.css";
+import RestaurantListLayout from "./components/RestaurantListLayout/RestaurantListLayout";
 
 function App() {
-  return <h1>Self-Paced React</h1>;
+  return <RestaurantListLayout />;
 }
 
 export default App;
