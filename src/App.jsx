@@ -4,15 +4,21 @@ import RestaurantList from "./RestaurantList/RestaurantList";
 import RestaurantDetailModal from "./Modal/RestaurantDetailModal";
 import AddRestaurantModal from "./Modal/AddRestaurantModal";
 import CategoryFilter from "./Filter/CategoryFilter";
-import { RESTAURANTS } from "./Restaurants";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 function App() {
   const [category, setCategory] = useState("");
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [isAddModalOpen, setIsAddModalOpen] = useState(false);
   const [selectedRestaurant, setSelectedRestaurant] = useState(null);
-  const [restaurants, setRestaurants] = useState(RESTAURANTS);
+  const [restaurants, setRestaurants] = useState([]);
+
+  useEffect(() => {
+    fetch("http://localhost:3000/restaurants")
+      .then((response) => response.json())
+      .then((data) => setRestaurants(data))
+      .catch((error) => console.error("Error:", error));
+  }, []);
 
   const filteredRestaurants = restaurants.filter(
     (restaurant) => category === "" || restaurant.category === category
