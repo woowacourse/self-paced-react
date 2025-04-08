@@ -38,12 +38,7 @@ function App() {
             </main>
             <aside>
                 {isModalOpen && (
-                    <Modal
-                        onChangeModal={setIsModalOpen}
-                        selectedRestaurant={selectedRestaurant}
-                        currentRestaurants={restaurants}
-                        handleRestaurant={setRestaurants}
-                    >
+                    <Modal onChangeModal={setIsModalOpen}>
                         {modalKind === 'addForm' ? (
                             <AddRestaurantModal onChangeModal={setIsModalOpen} currentRestaurants={restaurants} handleRestaurant={setRestaurants} />
                         ) : (
