@@ -1,5 +1,6 @@
 import './RestaurantDetailModal.css';
 
+
         </div>
       </div>
     </div>
