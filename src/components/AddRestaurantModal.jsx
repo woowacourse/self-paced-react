@@ -1,4 +1,4 @@
-import "./css/AddRestaurantModal.css";
+import "./css/RestaurantModal.css";
 
 function AddRestaurantModal() {
   return (
