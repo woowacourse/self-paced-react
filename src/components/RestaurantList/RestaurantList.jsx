@@ -9,7 +9,7 @@ function RestaurantList({ restaurants, onClickDetail }) {
           <li
             key={restaurant.id}
             className="restaurant"
-            onClick={() => onClickDetail(true)}
+            onClick={() => onClickDetail(restaurant)}
           >
             <div className="restaurant__category">
               <img

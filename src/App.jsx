@@ -11,6 +11,12 @@ import { useState } from "react";
 function App() {
   const [category, setCategory] = useState("전체");
   const [isModalOpen, setIsModalOpen] = useState(false);
+  const [selectedRestaurant, setSelectedRestaurant] = useState(null);
+
+  const handleClickRestaurant = (restaurant) => {
+    setSelectedRestaurant(restaurant);
+    setIsModalOpen(true);
+  };
 
   const filteredRestaurants =
     category === "전체"
@@ -26,12 +32,15 @@ function App() {
         <CategoryFilter category={category} onChangeCategory={setCategory} />
         <RestaurantList
           restaurants={filteredRestaurants}
-          onClickDetail={setIsModalOpen}
+          onClickDetail={handleClickRestaurant}
         />
       </main>
       <aside>
         {isModalOpen && (
-          <RestaurantDetailModal onClickDetail={setIsModalOpen} />
+          <RestaurantDetailModal
+            restaurant={selectedRestaurant}
+            onClose={() => setIsModalOpen(false)}
+          />
         )}
         <AddRestaurantModal />
       </aside>
