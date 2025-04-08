@@ -1,9 +1,5 @@
 import './RestaurantList.css';
 
-  return (
-    <section className="restaurant-list-container">
-      <ul className="restaurant-list">
-        {restaurants.map((restaurant) => (
             <div className="restaurant__category">
               <img
                 src={`/category-${getCategoryImageName(restaurant.category)}.png`}
