@@ -1,9 +1,14 @@
 import "./Modal.css";
 
-function RestaurantList() {
+function RestaurantList({ onClickDetail }) {
   return (
-    <div className="modal">
-      <div className="modal-backdrop"></div>
+    <div className="modal modal--open">
+      <div
+        className="modal-backdrop"
+        onClick={() => {
+          onClickDetail(false);
+        }}
+      ></div>
       <div className="modal-container">
         <h2 className="modal-title text-title">음식점 이름</h2>
         <div className="restaurant-info">
@@ -12,7 +17,14 @@ function RestaurantList() {
           </p>
         </div>
         <div className="button-container">
-          <button className="button button--primary text-caption">닫기</button>
+          <button
+            className="button button--primary text-caption"
+            onClick={() => {
+              onClickDetail(false);
+            }}
+          >
+            닫기
+          </button>
         </div>
       </div>
     </div>
