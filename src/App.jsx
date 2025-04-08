@@ -6,22 +6,42 @@ import Modal from './components/Modal';
 import AddRestaurantModal from './components/AddRestaurantModal';
 import RestaurantDetailModal from './components/RestaurantDetailModal';
 import { useEffect, useState } from 'react';
-import { restaurantsData } from './data/restaurantsData';
 
 function App() {
-    const [restaurants, setRestaurants] = useState(restaurantsData);
+    const [restaurants, setRestaurants] = useState([]);
     const [category, setCategory] = useState('전체');
     const [isModalOpen, setIsModalOpen] = useState(false);
     const [selectedRestaurant, setSelectedRestaurant] = useState(null);
     const [modalKind, setModalKind] = useState('');
 
     useEffect(() => {
-        if (category === '전체') {
-            setRestaurants(restaurantsData);
-        } else {
-            const filteredRestaurants = restaurantsData.filter((restaurant) => restaurant.category === category);
-            setRestaurants(filteredRestaurants);
-        }
+        fetch('http://localhost:3000/restaurants')
+            .then((response) => response.json())
+            .then((data) => setRestaurants(data))
+            .catch((error) => {
+                console.error(error.message);
+            });
+    }, []);
+
+    useEffect(() => {
+        const fetchRestaurants = async () => {
+            try {
+                const response = await fetch('http://localhost:3000/restaurants');
+                const restaurantsData = await response.json();
+
+                if (category === '전체') {
+                    setRestaurants(restaurantsData);
+                    return;
+                }
+
+                const filteredRestaurants = restaurantsData.filter((restaurant) => restaurant.category === category);
+                setRestaurants(filteredRestaurants);
+            } catch (error) {
+                console.error(error.message);
+            }
+        };
+
+        fetchRestaurants();
     }, [category]);
 
     return (
