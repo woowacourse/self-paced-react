@@ -7,7 +7,7 @@ import RestaurantDetailModal from './components/Modal/RestaurantDetailModal/Rest
 import { useState } from 'react';
 
 function App() {
-  const restaurants = [
+  const initialRestaurants = [
     {
       id: 'a01',
       name: '피양콩할마니',
@@ -51,15 +51,21 @@ function App() {
   const [category, setCategory] = useState('전체');
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [selectedRestaurant, setSelectedRestaurant] = useState(null);
+  const [isAddModalOpen, setIsAddModalOpen] = useState(false);
+  const [restaurants, setRestaurants] = useState(initialRestaurants);
 
   const filteredRestaurants = restaurants.filter(
     (restaurant) => category === '전체' || restaurant.category === category
   );
 
+  const handleAddRestaurant = (newRestaurant) => {
+    setRestaurants((prevRestaurants) => [...prevRestaurants, newRestaurant]);
+  };
+
   return (
     <>
       {/* GNB */}
-      <Header />
+      <Header onAddClick={() => setIsAddModalOpen(true)} />
       <main>
         {/* 카테고리/정렬 필터 */}
         <CategoryFilter category={category} onChangeCategory={setCategory} />
@@ -71,12 +77,10 @@ function App() {
             setIsModalOpen(true);
           }}
         />
-        {isModalOpen && <RestaurantDetailModal restaurant={selectedRestaurant} onClose={() => setIsModalOpen(false)} />}
       </main>
-      <aside>
-        {/* 음식점 추가 모달 */}
-        <AddRestaurantModal />
-      </aside>
+      {isModalOpen && <RestaurantDetailModal restaurant={selectedRestaurant} onClose={() => setIsModalOpen(false)} />}
+      {isAddModalOpen && <AddRestaurantModal onClose={() => setIsAddModalOpen(false)} onSubmit={handleAddRestaurant} />}
+      <aside></aside>
     </>
   );
 }
