@@ -1,7 +1,7 @@
 import '../css/RestaurantList.css';
 import { convertCategoryData } from '../data/convertCategoryData.js';
 
-function RestaurantList({ restaurants, onChangeModal, onChangeSelectRestaurant }) {
+function RestaurantList({ restaurants, onChangeModal, onChangeSelectRestaurant, onChangeModalKind }) {
     return (
         <>
             <section className='restaurant-list-container'>
@@ -11,8 +11,9 @@ function RestaurantList({ restaurants, onChangeModal, onChangeSelectRestaurant }
                             key={restaurant.id}
                             className='restaurant'
                             onClick={() => {
-                                onChangeModal(true);
                                 onChangeSelectRestaurant(restaurant);
+                                onChangeModalKind('detail');
+                                onChangeModal(true);
                             }}
                         >
                             <div className='restaurant__category'>

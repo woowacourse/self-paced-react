@@ -1,9 +1,10 @@
 import './App.css';
-import AddRestaurantModal from './components/AddRestaurantModal';
 import CategoryFilter from './components/CategoryFilter';
 import Header from './components/Header';
-import RestaurantDetailModal from './components/RestaurantDetailModal';
 import RestaurantList from './components/RestaurantList';
+import Modal from './components/Modal';
+import AddRestaurantModal from './components/AddRestaurantModal';
+import RestaurantDetailModal from './components/RestaurantDetailModal';
 import { useEffect, useState } from 'react';
 import { restaurantsData } from './data/restaurantsData';
 
@@ -12,7 +13,7 @@ function App() {
     const [category, setCategory] = useState('전체');
     const [isModalOpen, setIsModalOpen] = useState(false);
     const [selectedRestaurant, setSelectedRestaurant] = useState(null);
-    const [isAddModalOpen, setIsAddModalOpen] = useState(false);
+    const [modalKind, setModalKind] = useState('');
 
     useEffect(() => {
         if (category === '전체') {
@@ -25,14 +26,31 @@ function App() {
 
     return (
         <>
-            <Header onChangeModal={setIsAddModalOpen} />
+            <Header onChangeModal={setIsModalOpen} onChangeModalKind={setModalKind} />
             <main>
                 <CategoryFilter category={category} onChangeCategory={setCategory} />
-                <RestaurantList restaurants={restaurants} onChangeModal={setIsModalOpen} onChangeSelectRestaurant={setSelectedRestaurant} />
+                <RestaurantList
+                    restaurants={restaurants}
+                    onChangeModal={setIsModalOpen}
+                    onChangeSelectRestaurant={setSelectedRestaurant}
+                    onChangeModalKind={setModalKind}
+                />
             </main>
             <aside>
-                {isModalOpen && <RestaurantDetailModal onChangeModal={setIsModalOpen} selectedRestaurant={selectedRestaurant} />}
-                {isAddModalOpen && <AddRestaurantModal onChangeModal={setIsAddModalOpen} currentRestaurants={restaurants} handleRestaurant={setRestaurants} />}
+                {isModalOpen && (
+                    <Modal
+                        onChangeModal={setIsModalOpen}
+                        selectedRestaurant={selectedRestaurant}
+                        currentRestaurants={restaurants}
+                        handleRestaurant={setRestaurants}
+                    >
+                        {modalKind === 'addForm' ? (
+                            <AddRestaurantModal onChangeModal={setIsModalOpen} currentRestaurants={restaurants} handleRestaurant={setRestaurants} />
+                        ) : (
+                            <RestaurantDetailModal onChangeModal={setIsModalOpen} selectedRestaurant={selectedRestaurant} />
+                        )}
+                    </Modal>
+                )}
             </aside>
         </>
     );
