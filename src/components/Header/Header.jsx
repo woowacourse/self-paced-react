@@ -1,6 +1,6 @@
 import "./Header.css";
 
-import addButtonIcon from "../../assets/add-button.png";
+import addButtonIcon from "/add-button.png";
 
 function Header() {
   return (
