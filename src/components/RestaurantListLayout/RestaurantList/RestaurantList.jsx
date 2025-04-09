@@ -1,4 +1,10 @@
 import styles from "./RestaurantList.module.css";
+import koreanIcon from "../../../assets/category-korean.png";
+import chineseIcon from "../../../assets/category-chinese.png";
+import japaneseIcon from "../../../assets/category-japanese.png";
+import westernIcon from "../../../assets/category-western.png";
+import asianIcon from "../../../assets/category-asian.png";
+import etcIcon from "../../../assets/category-etc.png";
 
 function RestaurantList() {
   return (
@@ -7,11 +13,7 @@ function RestaurantList() {
         <ul className={styles.restaurantList}>
           <li className={styles.restaurantBox}>
             <div className={styles.category}>
-              <img
-                src="./images/category-korean.png"
-                alt="한식"
-                className="category-icon"
-              />
+              <img src={koreanIcon} alt="한식" className="category-icon" />
             </div>
             <div className={styles.info}>
               <h3 className={`${styles.name} text-subtitle`}>피양콩할마니</h3>
@@ -30,11 +32,7 @@ function RestaurantList() {
 
           <li className={styles.restaurantBox}>
             <div className={styles.category}>
-              <img
-                src="./images/category-chinese.png"
-                alt="중식"
-                className="category-icon"
-              />
+              <img src={chineseIcon} alt="중식" className="category-icon" />
             </div>
             <div className={styles.info}>
               <h3 className={`${styles.name} text-subtitle`}>친친</h3>
@@ -47,11 +45,7 @@ function RestaurantList() {
 
           <li className={styles.restaurantBox}>
             <div className={styles.category}>
-              <img
-                src="./images/category-japanese.png"
-                alt="일식"
-                className="category-icon"
-              />
+              <img src={japaneseIcon} alt="일식" className="category-icon" />
             </div>
             <div className={styles.info}>
               <h3 className={`${styles.name} text-subtitle`}>잇쇼우</h3>
@@ -65,11 +59,7 @@ function RestaurantList() {
 
           <li className={styles.restaurantBox}>
             <div className={styles.category}>
-              <img
-                src="./images/category-western.png"
-                alt="양식"
-                className="category-icon"
-              />
+              <img src={westernIcon} alt="양식" className="category-icon" />
             </div>
             <div className={styles.info}>
               <h3 className={`${styles.name} text-subtitle`}>이태리키친</h3>
@@ -81,11 +71,7 @@ function RestaurantList() {
 
           <li className={styles.restaurantBox}>
             <div className={styles.category}>
-              <img
-                src="./images/category-asian.png"
-                alt="아시안"
-                className="category-icon"
-              />
+              <img src={asianIcon} alt="아시안" className="category-icon" />
             </div>
             <div className={styles.info}>
               <h3 className={`${styles.name} text-subtitle`}>호아빈 삼성점</h3>
@@ -97,11 +83,7 @@ function RestaurantList() {
 
           <li className={styles.restaurantBox}>
             <div className={styles.category}>
-              <img
-                src="./images/category-etc.png"
-                alt="기타"
-                className="category-icon"
-              />
+              <img src={etcIcon} alt="기타" className="category-icon" />
             </div>
             <div className={styles.info}>
               <h3 className={`${styles.name} text-subtitle`}>
