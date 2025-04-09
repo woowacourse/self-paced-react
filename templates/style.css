@@ -16,7 +16,7 @@ body {
 }
 
 /* Colors *****************************************/
-:root {
+/* :root {
   --primary-color: #ec4a0a;
   --lighten-color: #f6a88a;
   --grey-100: #ffffff;
@@ -24,7 +24,7 @@ body {
   --grey-300: #667085;
   --grey-400: #344054;
   --grey-500: #000000;
-}
+} */
 
 /* Typography *************************************/
 /* .text-title {
