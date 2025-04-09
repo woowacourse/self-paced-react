@@ -59,6 +59,19 @@ function App() {
     setIsModalOpen(true);
   };
 
+  const onAddRestaurant = (event) => {
+    event.preventDefault();
+    const form = new FormData(event.target);
+    const newRestaurant = {
+      id: Date.now().toString(),
+      name: form.get("name"),
+      description: form.get("description"),
+      category: form.get("category"),
+    };
+    restaurants.push(newRestaurant);
+    closeModal();
+  };
+
   const openAddRestaurantModal = () => {
     setModalName("restaurantAdd");
     setIsModalOpen(true);
@@ -89,7 +102,10 @@ function App() {
               />
             )}
             {modalName === "restaurantAdd" && (
-              <AddRestaurantModal onClose={closeModal} />
+              <AddRestaurantModal
+                onAddRestaurant={onAddRestaurant}
+                onClose={closeModal}
+              />
             )}
           </BottomModalLayout>
         )}
