@@ -1,7 +1,7 @@
 import "./Modal.css";
 import Modal from "./Modal";
 
-function RestaurantList({ restaurant, onClose }) {
+function RestaurantDetailModal({ restaurant, onClose }) {
   return (
     <Modal onClose={onClose}>
       <h2 className="modal-title text-title">{restaurant.name}</h2>
@@ -22,4 +22,4 @@ function RestaurantList({ restaurant, onClose }) {
   );
 }
 
-export default RestaurantList;
+export default RestaurantDetailModal;

@@ -5,23 +5,40 @@ import CategoryFilter from "./components/CategoryFilter/CategoryFilter";
 import RestaurantList from "./components/RestaurantList/RestaurantList";
 import RestaurantDetailModal from "./components/Modal/RestaurantDetailModal";
 import AddRestaurantModal from "./components/Modal/AddRestaurantModal";
-import restaurantsData from "./data/restaurantData";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 function App() {
   const [category, setCategory] = useState("전체");
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [isAddModalOpen, setIsAddModalOpen] = useState(false);
   const [selectedRestaurant, setSelectedRestaurant] = useState(null);
-  const [restaurants, setRestaurants] = useState(restaurantsData);
+  const [restaurants, setRestaurants] = useState([]);
+
+  useEffect(() => {
+    const fetchRestaurants = async () => {
+      const response = await fetch("http://localhost:3000/restaurants");
+      const data = await response.json();
+      console.log(data);
+      setRestaurants(data);
+    };
+    fetchRestaurants();
+  }, []);
 
   const handleClickRestaurant = (restaurant) => {
     setSelectedRestaurant(restaurant);
     setIsModalOpen(true);
   };
 
-  const handleAddRestaurant = (newRestaurant) => {
-    setRestaurants([...restaurants, newRestaurant]);
+  const handleAddRestaurant = async (newRestaurant) => {
+    const response = await fetch("http://localhost:3000/restaurants", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(newRestaurant),
+    });
+    const data = await response.json();
+    setRestaurants([...restaurants, data]);
     setIsAddModalOpen(false);
   };
   const filteredRestaurants =
