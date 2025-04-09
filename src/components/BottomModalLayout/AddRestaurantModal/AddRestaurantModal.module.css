@@ -1,0 +1,92 @@
+.title {
+  margin-bottom: 36px;
+}
+
+.formItem {
+  display: flex;
+  flex-direction: column;
+
+  margin-bottom: 36px;
+}
+
+.formItem label {
+  color: var(--grey-400);
+  font-size: 14px;
+}
+
+.required label::after {
+  padding-left: 4px;
+
+  color: var(--primary-color);
+  content: "*";
+}
+
+.formItem .helpText {
+  color: var(--grey-300);
+}
+
+.formItem input,
+.formItem textarea,
+.formItem select {
+  padding: 8px;
+  margin: 6px 0;
+
+  border: 1px solid var(--grey-200);
+  border-radius: 8px;
+
+  font-size: 16px;
+}
+
+.formItem textarea {
+  resize: none;
+}
+
+.formItem select {
+  height: 44px;
+
+  padding: 8px;
+
+  border: 1px solid var(--grey-200);
+  border-radius: 8px;
+
+  color: var(--grey-300);
+}
+
+input[name="name"],
+input[name="link"] {
+  height: 44px;
+}
+
+.buttonContainer {
+  display: flex;
+}
+
+.button {
+  width: 100%;
+  height: 44px;
+
+  margin-right: 16px;
+
+  border: none;
+  border-radius: 8px;
+
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.button:last-child {
+  margin-right: 0;
+}
+
+.secondary {
+  border: 1px solid var(--grey-300);
+  background: transparent;
+
+  color: var(--grey-300);
+}
+
+.primary {
+  background: var(--primary-color);
+
+  color: var(--grey-100);
+}

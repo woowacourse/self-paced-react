@@ -11,7 +11,7 @@ function App() {
         <RestaurantListLayout />
       </main>
       <aside>
-        <BottomModalLayout modalName="restaurantDetail" />
+        <BottomModalLayout modalName="restaurantAdd" />
       </aside>
     </>
   );
