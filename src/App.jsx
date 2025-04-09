@@ -39,13 +39,18 @@ function App() {
       category: form.get("category"),
     };
 
-    await fetch("http://localhost:3000/restaurants", {
+    const response = await fetch("http://localhost:3000/restaurants", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
       },
       body: JSON.stringify(newRestaurant),
     });
+
+    if (!response.ok) {
+      alert("레스토랑 추가에 실패했습니다.");
+      return;
+    }
 
     setRestaurants([...restaurants, newRestaurant]);
     closeModal();
