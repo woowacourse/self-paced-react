@@ -17,6 +17,11 @@ function App() {
     setIsModalOpen(true);
   };
 
+  const openAddRestaurantModal = () => {
+    setModalName("restaurantAdd");
+    setIsModalOpen(true);
+  };
+
   const closeModal = () => {
     setModalName("");
     setSelectedRestaurant("");
@@ -25,7 +30,7 @@ function App() {
 
   return (
     <>
-      <Header />
+      <Header onAddRestaurant={openAddRestaurantModal} />
       <main>
         <RestaurantListLayout onClickRestaurant={openRestaurantDetailModal} />
       </main>
