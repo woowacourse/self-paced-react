@@ -2,7 +2,7 @@ import { useState } from "react";
 import CategoryFilter from "./CategoryFilter/CategoryFilter";
 import RestaurantList from "./RestaurantList/RestaurantList";
 
-function RestaurantListLayout() {
+function RestaurantListLayout({ onClickRestaurant }) {
   const restaurants = [
     {
       id: "a01",
@@ -55,7 +55,10 @@ function RestaurantListLayout() {
     <>
       <section>
         <CategoryFilter category={category} onChangeCategory={setCategory} />
-        <RestaurantList restaurants={filteredRestaurants} />
+        <RestaurantList
+          restaurants={filteredRestaurants}
+          onClickRestaurant={onClickRestaurant}
+        />
       </section>
     </>
   );
