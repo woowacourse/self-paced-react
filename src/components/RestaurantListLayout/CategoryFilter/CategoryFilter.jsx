@@ -1,6 +1,6 @@
 import styles from "./CategoryFilter.module.css";
 
-function CategoryFilter() {
+function CategoryFilter({ onChangeCategory }) {
   return (
     <section className={styles.container}>
       <select
@@ -8,6 +8,7 @@ function CategoryFilter() {
         id="category-filter"
         className={styles.p8}
         aria-label="음식점 카테고리 필터"
+        onChange={(event) => onChangeCategory(event.target.value)}
       >
         <option value="전체">전체</option>
         <option value="한식">한식</option>
