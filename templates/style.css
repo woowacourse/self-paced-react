@@ -163,7 +163,7 @@ body {
   color: var(--primary-color);
 }
 
-.restaurant__description {
+/* .restaurant__description {
   display: -webkit-box;
 
   padding-top: 8px;
@@ -172,10 +172,10 @@ body {
   text-overflow: ellipsis;
   -webkit-line-clamp: 2;
   -webkit-box-orient: vertical;
-}
+} */
 
 /* 음식점 정보/추가 모달 *****************************************/
-.modal {
+/* .modal {
   display: none;
 }
 
@@ -202,7 +202,7 @@ body {
 
   border-radius: 8px 8px 0px 0px;
   background: var(--grey-100);
-}
+} */
 
 .modal-title {
   margin-bottom: 36px;
@@ -297,6 +297,6 @@ input[name="link"] {
   color: var(--grey-100);
 }
 
-.restaurant-info {
+/* .restaurant-info {
   margin-bottom: 24px;
-}
+} */
