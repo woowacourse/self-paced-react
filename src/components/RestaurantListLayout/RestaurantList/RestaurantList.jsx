@@ -8,7 +8,7 @@ function RestaurantList() {
           <li className={styles.restaurantBox}>
             <div className={styles.category}>
               <img
-                src="./category-korean.png"
+                src="./images/category-korean.png"
                 alt="한식"
                 className="category-icon"
               />
@@ -31,7 +31,7 @@ function RestaurantList() {
           <li className={styles.restaurantBox}>
             <div className={styles.category}>
               <img
-                src="./category-chinese.png"
+                src="./images/category-chinese.png"
                 alt="중식"
                 className="category-icon"
               />
@@ -48,7 +48,7 @@ function RestaurantList() {
           <li className={styles.restaurantBox}>
             <div className={styles.category}>
               <img
-                src="./category-japanese.png"
+                src="./images/category-japanese.png"
                 alt="일식"
                 className="category-icon"
               />
@@ -66,7 +66,7 @@ function RestaurantList() {
           <li className={styles.restaurantBox}>
             <div className={styles.category}>
               <img
-                src="./category-western.png"
+                src="./images/category-western.png"
                 alt="양식"
                 className="category-icon"
               />
@@ -82,7 +82,7 @@ function RestaurantList() {
           <li className={styles.restaurantBox}>
             <div className={styles.category}>
               <img
-                src="./category-asian.png"
+                src="./images/category-asian.png"
                 alt="아시안"
                 className="category-icon"
               />
@@ -98,7 +98,7 @@ function RestaurantList() {
           <li className={styles.restaurantBox}>
             <div className={styles.category}>
               <img
-                src="./category-etc.png"
+                src="./images/category-etc.png"
                 alt="기타"
                 className="category-icon"
               />
