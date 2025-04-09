@@ -10,7 +10,9 @@ function App() {
       <main>
         <RestaurantListLayout />
       </main>
-      <aside></aside>
+      <aside>
+        <BottomModalLayout modalName="restaurantAdd" />
+      </aside>
     </>
   );
 }
