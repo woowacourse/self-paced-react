@@ -4,7 +4,7 @@ function RestaurantDetailModal({ restaurant: { name, description }, onClose }) {
   return (
     <div className="modal modal--open">
       <div className="modal-backdrop" onClick={onClose}></div>
-      <div className="modal-container" onClick={(e) => e.stopPropagation()}>
+      <div className="modal-container">
         <h2 className="modal-title text-title">{name}</h2>
         <div className="restaurant-info">
           <p className="restaurant-info__description text-body">
