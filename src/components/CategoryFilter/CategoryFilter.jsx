@@ -9,9 +9,9 @@ function CategoryFilter({ category, onChangeCategory }) {
         value={category}
         onChange={(e) => onChangeCategory(e.target.value)}
       >
-        {categories.map((c) => (
-          <option key={c} value={c}>
-            {c}
+        {categories.map((category) => (
+          <option key={category} value={category}>
+            {category}
           </option>
         ))}
       </select>
