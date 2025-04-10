@@ -1,10 +1,11 @@
 import { useState, useEffect } from "react";
+
 import "./App.css";
+import AddRestaurantModal from "./components/BottomModalLayout/AddRestaurantModal/AddRestaurantModal";
 import BottomModalLayout from "./components/BottomModalLayout/BottomModalLayout";
+import RestaurantDetailModal from "./components/BottomModalLayout/RestaurantDetailModal/RestaurantDetailModal";
 import Header from "./components/common/Header/Header";
 import RestaurantListLayout from "./components/RestaurantListLayout/RestaurantListLayout";
-import RestaurantDetailModal from "./components/BottomModalLayout/RestaurantDetailModal/RestaurantDetailModal";
-import AddRestaurantModal from "./components/BottomModalLayout/AddRestaurantModal/AddRestaurantModal";
 
 function App() {
   const [modalState, setModalState] = useState({
