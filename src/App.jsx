@@ -11,6 +11,7 @@ function App() {
   const [category, setCategory] = useState("전체");
   const [modalOpen, setModalOpen] = useState(false);
   const [addModalOpen, setAddModalOpen] = useState(false);
+  const [selectedRestaurant, setSelectedRestaurant] = useState(null);
 
   const restaurants = [
     {
@@ -59,12 +60,17 @@ function App() {
       ? restaurants
       : restaurants.filter((r) => r.category === category);
 
-  const handleClickItem = () => {
-    setModalOpen(true);
-  };
+  // const handleClickItem = () => {
+  //   setModalOpen(true);
+  // };
 
   const handleCloseModal = () => {
     setModalOpen(false);
+  };
+
+  const handleClickItem = (restaurant) => {
+    setSelectedRestaurant(restaurant);
+    setModalOpen(true);
   };
 
   return (
@@ -78,7 +84,12 @@ function App() {
         />
       </main>
       <aside>
-        {modalOpen && <RestaurantDetailModal onClose={handleCloseModal} />}
+        {modalOpen && selectedRestaurant && (
+          <RestaurantDetailModal
+            restaurant={selectedRestaurant}
+            onClose={handleCloseModal}
+          />
+        )}
         {addModalOpen && (
           <AddRestaurantModal onClose={() => setAddModalOpen(false)} />
         )}
