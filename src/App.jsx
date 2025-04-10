@@ -17,11 +17,11 @@ function App() {
       ? restaurants
       : restaurants.filter((r) => r.category === category);
 
-  const handleCloseModal = () => {
+  const handleModalClose = () => {
     setDetailModalOpen(false);
   };
 
-  const handleClickItem = (restaurant) => {
+  const handleRestaurantItemClick = (restaurant) => {
     setSelectedRestaurant(restaurant);
     setDetailModalOpen(true);
   };
@@ -33,14 +33,14 @@ function App() {
         <CategoryFilter category={category} onChangeCategory={setCategory} />
         <RestaurantList
           restaurants={filteredRestaurants}
-          onItemClick={handleClickItem}
+          onItemClick={handleRestaurantItemClick}
         />
       </main>
       <aside>
         {detailModalOpen && selectedRestaurant && (
           <RestaurantDetailModal
             restaurant={selectedRestaurant}
-            onClose={handleCloseModal}
+            onClose={handleModalClose}
           />
         )}
         {addModalOpen && (
