@@ -1,10 +1,10 @@
 import "./RestaurantDetailModal.css";
 
-function RestaurantDetailModal() {
+function RestaurantDetailModal({ onClose }) {
   return (
     <div className="modal modal--open">
-      <div className="modal-backdrop"></div>
-      <div className="modal-container">
+      <div className="modal-backdrop" onClick={onClose}></div>
+      <div className="modal-container" onClick={(e) => e.stopPropagation()}>
         <h2 className="modal-title text-title">음식점 이름</h2>
         <div className="restaurant-info">
           <p className="restaurant-info__description text-body">
@@ -12,7 +12,12 @@ function RestaurantDetailModal() {
           </p>
         </div>
         <div className="button-container">
-          <button className="button button--primary text-caption">닫기</button>
+          <button
+            className="button button--primary text-caption"
+            onClick={onClose}
+          >
+            닫기
+          </button>
         </div>
       </div>
     </div>
