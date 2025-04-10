@@ -17,9 +17,8 @@ function App() {
       ? restaurants
       : restaurants.filter((r) => r.category === category);
 
-  const handleModalClose = () => {
-    setDetailModalOpen(false);
-  };
+  const handleAddModalClose = () => setAddModalOpen(false);
+  const handleDetailModalClose = () => setDetailModalOpen(false);
 
   const handleRestaurantItemClick = (restaurant) => {
     setSelectedRestaurant(restaurant);
@@ -28,7 +27,7 @@ function App() {
 
   return (
     <>
-      <Header />
+      <Header onAddClick={() => setAddModalOpen(true)} />
       <main>
         <CategoryFilter category={category} onChangeCategory={setCategory} />
         <RestaurantList
@@ -40,12 +39,10 @@ function App() {
         {detailModalOpen && selectedRestaurant && (
           <RestaurantDetailModal
             restaurant={selectedRestaurant}
-            onClose={handleModalClose}
+            onClose={handleDetailModalClose}
           />
         )}
-        {addModalOpen && (
-          <AddRestaurantModal onClose={() => setAddModalOpen(false)} />
-        )}
+        {addModalOpen && <AddRestaurantModal onClose={handleAddModalClose} />}
       </aside>
     </>
   );
