@@ -1,15 +1,16 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import "./App.css";
 import BottomModalLayout from "./components/BottomModalLayout/BottomModalLayout";
 import Header from "./components/common/Header/Header";
 import RestaurantListLayout from "./components/RestaurantListLayout/RestaurantListLayout";
 import RestaurantDetailModal from "./components/BottomModalLayout/RestaurantDetailModal/RestaurantDetailModal";
 import AddRestaurantModal from "./components/BottomModalLayout/AddRestaurantModal/AddRestaurantModal";
-import { useEffect } from "react";
 
 function App() {
-  const [isModalOpen, setIsModalOpen] = useState(false);
-  const [modalName, setModalName] = useState("");
+  const [modalState, setModalState] = useState({
+    isModalOpen: false,
+    modalName: "",
+  });
   const [selectedRestaurant, setSelectedRestaurant] = useState(null);
   const [restaurants, setRestaurants] = useState([]);
 
@@ -24,9 +25,11 @@ function App() {
   }, []);
 
   const openRestaurantDetailModal = ({ restaurant }) => {
-    setModalName("restaurantDetail");
     setSelectedRestaurant(restaurant);
-    setIsModalOpen(true);
+    setModalState({
+      isModalOpen: true,
+      modalName: "restaurantDetail",
+    });
   };
 
   const onAddRestaurant = async (event) => {
@@ -57,14 +60,18 @@ function App() {
   };
 
   const openAddRestaurantModal = () => {
-    setModalName("restaurantAdd");
-    setIsModalOpen(true);
+    setModalState({
+      isModalOpen: true,
+      modalName: "restaurantAdd",
+    });
   };
 
   const closeModal = () => {
-    setModalName("");
+    setModalState({
+      isModalOpen: false,
+      modalName: "",
+    });
     setSelectedRestaurant("");
-    setIsModalOpen(false);
   };
 
   return (
@@ -77,15 +84,15 @@ function App() {
         />
       </main>
       <aside>
-        {isModalOpen && (
+        {modalState.isModalOpen && (
           <BottomModalLayout onClose={closeModal}>
-            {modalName === "restaurantDetail" && (
+            {modalState.modalName === "restaurantDetail" && (
               <RestaurantDetailModal
                 restaurant={selectedRestaurant}
                 onClose={closeModal}
               />
             )}
-            {modalName === "restaurantAdd" && (
+            {modalState.modalName === "restaurantAdd" && (
               <AddRestaurantModal
                 onAddRestaurant={onAddRestaurant}
                 onClose={closeModal}
