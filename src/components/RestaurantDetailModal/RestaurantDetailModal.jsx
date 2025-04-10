@@ -1,14 +1,14 @@
 import "./RestaurantDetailModal.css";
 
-function RestaurantDetailModal({ restaurant, onClose }) {
+function RestaurantDetailModal({ restaurant: { name, description }, onClose }) {
   return (
     <div className="modal modal--open">
       <div className="modal-backdrop" onClick={onClose}></div>
       <div className="modal-container" onClick={(e) => e.stopPropagation()}>
-        <h2 className="modal-title text-title">{restaurant.name}</h2>
+        <h2 className="modal-title text-title">{name}</h2>
         <div className="restaurant-info">
           <p className="restaurant-info__description text-body">
-            {restaurant.description}
+            {description}
           </p>
         </div>
         <div className="button-container">
