@@ -1,4 +1,5 @@
 import { useState } from "react";
+
 import CategoryFilter from "./CategoryFilter/CategoryFilter";
 import RestaurantList from "./RestaurantList/RestaurantList";
 

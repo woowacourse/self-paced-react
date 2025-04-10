@@ -1,5 +1,6 @@
-import styles from "./Header.module.css";
 import addButtonImg from "../../../assets/add-button.png";
+
+import styles from "./Header.module.css";
 
 function Header({ onAddRestaurant }) {
   return (
