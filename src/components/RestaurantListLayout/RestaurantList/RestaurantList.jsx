@@ -15,12 +15,16 @@ const categoryIcons = {
   기타: etcIcon,
 };
 
-function RestaurantList({ restaurants }) {
+function RestaurantList({ restaurants, onClickRestaurant }) {
   return (
     <section className={styles.listContainer}>
       <ul className={styles.restaurantList}>
         {restaurants.map((restaurant) => (
-          <li key={restaurant.id} className={styles.restaurantBox}>
+          <li
+            key={restaurant.id}
+            className={styles.restaurantBox}
+            onClick={() => onClickRestaurant({ restaurant })}
+          >
             <div className={styles.category}>
               <img
                 src={categoryIcons[restaurant.category]}

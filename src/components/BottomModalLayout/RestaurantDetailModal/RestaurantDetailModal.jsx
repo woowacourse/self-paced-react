@@ -1,15 +1,18 @@
 import styles from "./RestaurantDetailModal.module.css";
 
-function RestaurantDetailModal() {
+function RestaurantDetailModal({ restaurant, onClose }) {
   return (
     <>
-      <h2 className={`${styles.title} text-title`}>음식점 이름</h2>
+      <h2 className={`${styles.title} text-title`}>{restaurant.name}</h2>
       <div className={styles.info}>
-        <p className={`${styles.description} text-body`}>음식점 소개 문구</p>
+        <p className={`${styles.description} text-body`}>
+          {restaurant.description}
+        </p>
       </div>
       <div className={styles.buttonContainer}>
         <button
           className={`${styles.button} ${styles.buttonPrimary} text-caption`}
+          onClick={onClose}
         >
           닫기
         </button>
