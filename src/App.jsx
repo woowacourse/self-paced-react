@@ -19,7 +19,7 @@ function App() {
     const fetchRestaurants = async () => {
       const response = await fetch("http://localhost:3000/restaurants");
       const data = await response.json();
-      setRestaurants(data);
+      setRestaurants((prev) => [...prev, data]);
     };
 
     fetchRestaurants();
@@ -56,7 +56,7 @@ function App() {
       return;
     }
 
-    setRestaurants([...restaurants, newRestaurant]);
+    setRestaurants((prev) => [...prev, newRestaurant]);
     closeModal();
   };
 
