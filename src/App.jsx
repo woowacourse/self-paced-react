@@ -45,6 +45,7 @@ function App() {
       description: "멕시칸 캐주얼 그릴",
       category: "기타",
     },
+
   ]);
 
   const [category, setCategory] = useState("전체");
