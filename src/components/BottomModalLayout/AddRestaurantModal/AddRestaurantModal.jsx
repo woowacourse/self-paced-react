@@ -1,10 +1,10 @@
 import styles from "./AddRestaurantModal.module.css";
 
-function AddRestaurantModal() {
+function AddRestaurantModal({ onAddRestaurant }) {
   return (
     <>
       <h2 className={`${styles.title} text-title`}>새로운 음식점</h2>
-      <form>
+      <form onSubmit={onAddRestaurant}>
         <div className={`${styles.formItem} ${styles.required}`}>
           <label htmlFor="category text-caption">카테고리</label>
           <select name="category" id="category" required>
