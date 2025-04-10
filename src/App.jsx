@@ -5,12 +5,11 @@ import CategoryFilter from "./components/CategoryFilter/CategoryFilter.jsx";
 import RestaurantList from "./components/RestaurantList/RestaurantList.jsx";
 import RestaurantDetailModal from "./components/RestaurantDetailModal/RestaurantDetailModal.jsx";
 import AddRestaurantModal from "./components/AddRestaurantModal/AddRestaurantModal.jsx";
-// import { use } from "react";
 
 function App() {
   const [category, setCategory] = useState("전체");
-  const [modalOpen, setModalOpen] = useState(false);
   const [addModalOpen, setAddModalOpen] = useState(false);
+  const [detailModalOpen, setDetailModalOpen] = useState(false);
   const [selectedRestaurant, setSelectedRestaurant] = useState(null);
 
   const restaurants = [
@@ -60,17 +59,13 @@ function App() {
       ? restaurants
       : restaurants.filter((r) => r.category === category);
 
-  // const handleClickItem = () => {
-  //   setModalOpen(true);
-  // };
-
   const handleCloseModal = () => {
-    setModalOpen(false);
+    setDetailModalOpen(false);
   };
 
   const handleClickItem = (restaurant) => {
     setSelectedRestaurant(restaurant);
-    setModalOpen(true);
+    setDetailModalOpen(true);
   };
 
   return (
@@ -84,7 +79,7 @@ function App() {
         />
       </main>
       <aside>
-        {modalOpen && selectedRestaurant && (
+        {detailModalOpen && selectedRestaurant && (
           <RestaurantDetailModal
             restaurant={selectedRestaurant}
             onClose={handleCloseModal}
